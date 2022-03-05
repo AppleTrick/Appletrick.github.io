@@ -1,0 +1,32 @@
+---
+layout: post
+title: 블로스 jekyll에서 포스 쓰는 법 문석하기 
+author:
+  name: Changhee Park
+  link: https://github.com/Appletrick
+date: 2022-03-05 00:40:00 +0900
+categories: [Blogging]
+tags: [블로그, 글쓰기.]
+---
+
+## 각 항목 분석하기
+- layout : 어떤 html 파일을 적용시킬것인지 확인할 수 있다.
+    _layouts 디렉터리 밑에 있는 post.html 을 사용하여 글을 포스팅
+
+- title : 제목 쓰여지는 부분
+
+- date : 날짜 기록하는 방법
+    파일 이름을 YYYY-MM-DD-POST_TITLE.md 로 하면 자동으로 글의 시간을 파싱한다.
+    만약 같은 날 2개 이상의 포스트를 올리는 경우에는 시간을 고정시켜 포스팅 순서를 정해줄 수 있다.
+
+- categories : 포스팅된 내용의 카테고리르 설정한다.
+  배열[] 안에 2개 이상의 카테고리를 ,로 구분지어 넣으면 2개 이상의 카테고리가 적용.
+  단, 이 경우 포스트의 주소가 ~/category1/category2/YYYY/MM/DD/POST_TITLE 처럼 url 주소가 생긴다.
+
+- tags : 글 내용을 태그
+  배열 [] 안에 ,로 구분지어 여러개의 tag 를 설정할 수 있다.
+
+- description : 메인 화면에서 보여 질 미리보기 텍스트
+
+- comments
+  사용하기 위해선 링크 에서 disqus 를 추가해 _config.yml 에 disqus: DISQUS_NAME을 추가한다.
