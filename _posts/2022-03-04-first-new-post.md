@@ -4,7 +4,7 @@ author:
   name: Changhee Park
   link: https://github.com/Appletrick
 date: 2022-03-04 18:40:00 +0900
-categories: [Blogging, Tutorial]
+categories: [Blogging]
 tags: [writing]
 ---
 
