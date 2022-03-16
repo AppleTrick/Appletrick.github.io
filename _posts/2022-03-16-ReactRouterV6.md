@@ -627,7 +627,7 @@ import React from 'react';
 
 const NotFound = () => {
     return(
-        <div
+        <>
             style={{
             display: 'flex',
             alignItems: 'center',
@@ -639,7 +639,7 @@ const NotFound = () => {
             }}
          >
         404
-        </div>
+        </>
     )
 }
 
