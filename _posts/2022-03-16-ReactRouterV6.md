@@ -627,8 +627,8 @@ import React from 'react';
 
 const NotFound = () => {
     return(
-        <>
-            style={{
+        <div
+            style={% raw %}{{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -636,10 +636,10 @@ const NotFound = () => {
             position: 'absolute',
             width: '100%',
             height: '100%',
-            }}
+            }}{% endraw %}
          >
         404
-        </>
+        </div>
     )
 }
 
@@ -698,6 +698,7 @@ export default Login;
 
 두개 항목 추가해줄것
 
-내용 참고한 글
+내용 
+
 > [https://velog.io/@velopert/react-router-v6-tutorial#64-navigate-컴포넌트](https://velog.io/@velopert/react-router-v6-tutorial#64-navigate-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8)
 >
