@@ -435,13 +435,13 @@ export default Article
 </>
 ```
 
-<OutLet/> 컴포넌트를 사용할것
+OutLet 컴포넌트를 사용할것
 
 ![3](https://user-images.githubusercontent.com/31761527/158533493-0ba27915-4f3b-4244-921f-a3d4de7709d9.png)
 
 ![4](https://user-images.githubusercontent.com/31761527/158533490-a449f9fd-f07a-4912-9155-41679ad35573.png)
 
-<OutLet/> 컴포넌트는 Route에서 자식요소로 들어가는 부분을 보여줄수 있다
+OutLet 컴포넌트는 Route에서 자식요소로 들어가는 부분을 보여줄수 있다
 
 ## 좀더 나은 중첩방식 Outlet
 
