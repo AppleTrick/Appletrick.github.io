@@ -4,9 +4,9 @@ author:
   name: Changhee Park
   link: https://github.com/Appletrick
 date: 2022-03-16 00:00:00 +0900
-categories: [Blogging]
+categories: [React]
 description: 블로그 포스팅 방법 분석
-tags: [블로그, 글쓰기]
+tags: [React, Routing]
 ---
 
 # 라우팅이란?
