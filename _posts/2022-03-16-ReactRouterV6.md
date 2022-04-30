@@ -1,12 +1,12 @@
 ---
-title: React-Router 사용하고 활용하기 
+title: React-Router 사용하고 활용하기
 author:
   name: Changhee Park
   link: https://github.com/Appletrick
 date: 2022-03-16 00:00:00 +0900
 categories: [React]
 description: 블로그 포스팅 방법 분석
-tags: [React, Routing]
+tags: [react, routing]
 ---
 
 # 라우팅이란?
@@ -15,7 +15,7 @@ tags: [React, Routing]
 
 리액트에서 라우팅은 페이지별로 나눠져 있는 컴포넌트를 관리하기 위한 시스템이다.
 
-리액트에서 라우팅시스템을 구현하는 방법은 두가지가 있는데 
+리액트에서 라우팅시스템을 구현하는 방법은 두가지가 있는데
 
 1. **리액트 라우터(React Router) :** 리액트 라우터는 기존의 시스템에서 가장 많이 사용되는 시스템이다.
 2. **Next.js :** 리액트 프로젝트의 프레임워크로 다양한 기능을 제공하는데 그중 하나가 리액트 라우팅 시스템이다.
@@ -35,16 +35,16 @@ npm i react-router-dom
 프로젝트 전체에 리액트 라우터를 적용하기 위해서는 메인 루트가 되는 index.js에 react-router를 적용시켜준다.
 
 ```jsx
-import React from 'react';
-import ReactDom from 'react-dom';
-import App from './src/App';
-import {BrowserRouter} from 'react-router-dom';
+import React from "react";
+import ReactDom from "react-dom";
+import App from "./src/App";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDom.render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>, 
-    document.getElementById('root')
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("root")
 );
 ```
 
@@ -53,16 +53,16 @@ ReactDom.render(
 **`Home.jsx`**
 
 ```jsx
-import React from 'react';
+import React from "react";
 
 const Home = () => {
-    return(
-        <div>
-            <h1>홈</h1>
-            <p>가장 먼저 보여지는 홈 페이지 입니다.</p>
-        </div>
-    )
-}
+  return (
+    <div>
+      <h1>홈</h1>
+      <p>가장 먼저 보여지는 홈 페이지 입니다.</p>
+    </div>
+  );
+};
 
 export default Home;
 ```
@@ -70,16 +70,16 @@ export default Home;
 **`About.jsx`**
 
 ```jsx
-import React from 'react';
+import React from "react";
 
 const About = () => {
-    return(
-        <>
-            <h1>about</h1>
-            <p>about 페이지 입니다.</p>
-        </>
-    )
-}
+  return (
+    <>
+      <h1>about</h1>
+      <p>about 페이지 입니다.</p>
+    </>
+  );
+};
 
 export default About;
 ```
@@ -89,20 +89,20 @@ export default About;
 **`App.jsx`**
 
 ```jsx
-import React from 'react';
+import React from "react";
 
 import { Route, Routes } from "react-router-dom";
-import Home from "./skillFolder/Routing/pages/home"
-import About from "./skillFolder/Routing/pages/about"
+import Home from "./skillFolder/Routing/pages/home";
+import About from "./skillFolder/Routing/pages/about";
 
 const App = () => {
-  return(
-      <>
-        <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/about" element={<About/>}/>
-        </Routes>
-      </>
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </>
   );
 };
 
@@ -131,7 +131,7 @@ export default App;
 
 ## <Link> 를 이용하여 다른 컴포넌트로 가는법
 
-Link를 이용하면 다른 컴포넌트로 이동할 수 있는 수단이 생긴다. 
+Link를 이용하면 다른 컴포넌트로 이동할 수 있는 수단이 생긴다.
 
 - <a> 태그는 브라우저의 새로운 페이지를 불러오기 때문에 리액트에서는 사용 하면안된다.
 - <Link> 태그는 역할을 같지만 브라우저의 새로운 페이지는 부르지 않고 History API 에 브라우저 경로 변경만 해준다.
@@ -143,18 +143,18 @@ Link를 이용하면 다른 컴포넌트로 이동할 수 있는 수단이 생�
 `home.jsx`
 
 ```jsx
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
-    return(
-        <div>
-            <h1>홈</h1>
-            <p>가장 먼저 보여지는 홈 페이지 입니다.</p>
-            <Link to="./about">소개</Link>
-        </div>
-    )
-}
+  return (
+    <div>
+      <h1>홈</h1>
+      <p>가장 먼저 보여지는 홈 페이지 입니다.</p>
+      <Link to="./about">소개</Link>
+    </div>
+  );
+};
 
 export default Home;
 ```
@@ -165,8 +165,8 @@ URL 파라미터 : 주소의 경로에 유동적인 값을 넣는 형태, 주로
 
 쿼리 스트링은 주소의 뒷부분에 ? 문자열 이후에 key=value 로 값을 정의하며 & 로 구분을 하는 형태 주로 **정렬 방식의 데이터 조회에 필요한 옵션을 전달** 할때 사용
 
-- ***URL파라미터*** : /profile/Appletrick
-- ***URL쿼리스트링 :*** /main?**page=1&keyword=name
+- **_URL파라미터_** : /profile/Appletrick
+- **_URL쿼리스트링 :_** /main?\*\*page=1&keyword=name
 
 ## URL 파라미터 이용해보기
 
@@ -174,14 +174,14 @@ URL 파라미터 : 주소의 경로에 유동적인 값을 넣는 형태, 주로
 
 ```jsx
 const App = () => {
-  return(
-      <>
-        <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/about" element={<About/>}/>
-            <Route path='/profile/:username' element={<Profile/>}/>
-        </Routes>
-      </>
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/profile/:username" element={<Profile />} />
+      </Routes>
+    </>
   );
 };
 ```
@@ -192,27 +192,27 @@ const App = () => {
 
 ```jsx
 const Home = () => {
-    return(
-        <div>
-            <h1>홈</h1>
-            <p>가장 먼저 보여지는 홈 페이지 입니다.</p>
-            <ul>
-                <li>
-                    <Link to="/about">소개</Link>
-                </li>
-                <li>
-                    <Link to="/profile/appletrick">Appletrick</Link>
-                </li>
-                <li>
-                    <Link to="/profile/steve">스티브잡스</Link>
-                </li>
-                <li>
-                    <Link to="/profile/who">누구?</Link>
-                </li>
-            </ul>
-        </div>
-    )
-}
+  return (
+    <div>
+      <h1>홈</h1>
+      <p>가장 먼저 보여지는 홈 페이지 입니다.</p>
+      <ul>
+        <li>
+          <Link to="/about">소개</Link>
+        </li>
+        <li>
+          <Link to="/profile/appletrick">Appletrick</Link>
+        </li>
+        <li>
+          <Link to="/profile/steve">스티브잡스</Link>
+        </li>
+        <li>
+          <Link to="/profile/who">누구?</Link>
+        </li>
+      </ul>
+    </div>
+  );
+};
 ```
 
 profile에서 매개변수로 appletrick, steve, who 3개로 나뉘게 된다.
@@ -220,41 +220,40 @@ profile에서 매개변수로 appletrick, steve, who 3개로 나뉘게 된다.
 `**profile.jsx**` 를 만들어주자
 
 ```jsx
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React from "react";
+import { useParams } from "react-router-dom";
 
 const data = {
-    appletrick : {
-        name : 'Appletrick',
-        about : '멋진 개발자',
-    },
-    steve : {
-        name : '스티브잡스',
-        about : '애플의 창시자',
-    }
-}
+  appletrick: {
+    name: "Appletrick",
+    about: "멋진 개발자",
+  },
+  steve: {
+    name: "스티브잡스",
+    about: "애플의 창시자",
+  },
+};
 
 const Profile = () => {
+  const params = useParams();
+  const profile = data[params.username];
 
-    const params = useParams();
-    const profile = data[params.username];
+  return (
+    <>
+      <h1>사용자 프로필</h1>
+      {profile ? (
+        <div>
+          <h2>{profile.name}</h2>
+          <h3>{profile.about}</h3>
+        </div>
+      ) : (
+        <p>존재하지 않는 사람 입니다.</p>
+      )}
+    </>
+  );
+};
 
-    return(
-        <>
-            <h1>사용자 프로필</h1>
-            {profile ? (
-                <div>
-                    <h2>{profile.name}</h2>
-                    <h3>{profile.about}</h3>
-                </div>
-            ) : (
-                <p>존재하지 않는 사람 입니다.</p> 
-            )}
-        </>
-    )
-}
-
-export default Profile
+export default Profile;
 ```
 
 - 임시적인 data 오브젝트를 생성해준다.
@@ -274,22 +273,21 @@ export default Profile
 useLocation을 통해 쿼리스트링의 경로를 나타내준다.
 
 ```jsx
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React from "react";
+import { useLocation } from "react-router-dom";
 
 const About = () => {
+  const location = useLocation();
+  console.log(location);
 
-    const location = useLocation();
-    console.log(location);
-
-    return(
-        <>
-            <h1>about</h1>
-            <p>리액트 라우터사용하는 페이지</p>
-            <p>현재의 쿼리 스트링 {location.search}</p>
-        </>
-    )
-}
+  return (
+    <>
+      <h1>about</h1>
+      <p>리액트 라우터사용하는 페이지</p>
+      <p>현재의 쿼리 스트링 {location.search}</p>
+    </>
+  );
+};
 
 export default About;
 ```
@@ -315,37 +313,36 @@ export default About;
 리액트 라우터에서는 v6 버젼부터 useSearchParam을 통해 쉽게 쿼리스트링을 다룰 수 있다.
 
 ```jsx
-import React from 'react';
-import { useSearchParams } from 'react-router-dom';
+import React from "react";
+import { useSearchParams } from "react-router-dom";
 
 const About = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const detail = searchParams.get("detail");
+  const mode = searchParams.get("mode");
 
-    const [searchParams, setSearchParams] = useSearchParams();
-    const detail = searchParams.get('detail');
-    const mode = searchParams.get('mode');
+  console.log(typeof mode, typeof detail);
 
-    console.log(typeof(mode), typeof(detail));
+  const onToggleDetail = () => {
+    setSearchParams({ mode, detail: detail === true ? false : true });
+  };
 
-    const onToggleDetail = () => {
-        setSearchParams({mode, detail : detail === true ? false : true });
-    }
+  const onIncreaseMode = () => {
+    const nextMode = mode == "null" ? 1 : parseInt(mode) + 1;
+    setSearchParams({ mode: nextMode, detail });
+  };
 
-    const onIncreaseMode = () => {
-        const nextMode = mode == 'null' ?  1 : parseInt(mode) + 1;
-        setSearchParams({mode : nextMode , detail});
-    }
-
-    return(
-        <div>
-            <h1>소개</h1>
-            <p>리액트 라우터를 사용해 보는 프로젝트입니다.</p>
-            <p>detail: {detail}</p>
-            <p>mode: {mode}</p>
-            <button onClick={onToggleDetail}>Toggle detail</button>
-            <button onClick={onIncreaseMode}>mode + 1</button>
-        </div>
-    )
-}
+  return (
+    <div>
+      <h1>소개</h1>
+      <p>리액트 라우터를 사용해 보는 프로젝트입니다.</p>
+      <p>detail: {detail}</p>
+      <p>mode: {mode}</p>
+      <button onClick={onToggleDetail}>Toggle detail</button>
+      <button onClick={onIncreaseMode}>mode + 1</button>
+    </div>
+  );
+};
 
 export default About;
 ```
@@ -353,8 +350,8 @@ export default About;
 ### 핵심
 
 - useSearchParams() 는 배열값으로 값을 반환한다.
-    - 첫번째 값은 쿼리파라미터의 값을 조회하는것 (searchParams이부분 )
-    - 두번째 값은 쿼리파라미터의 값을 수정하거나 업데이트 (setSearchParams 부분) 을가지고 온다..
+  - 첫번째 값은 쿼리파라미터의 값을 조회하는것 (searchParams이부분 )
+  - 두번째 값은 쿼리파라미터의 값을 수정하거나 업데이트 (setSearchParams 부분) 을가지고 온다..
 
 조회하여 값을 가지고 올때는 모두 string 문자열 값을 취하기 때문에 값을 더 하거나 뺄때는 parseInt() 를 통해 값을 조정한다.
 
@@ -365,73 +362,69 @@ export default About;
 `article.jsx`
 
 ```jsx
-import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import React from "react";
+import { Link, Outlet } from "react-router-dom";
 
 const Article = () => {
-    return(
-        <>
-            <Outlet/>
-            <ul>
-                <li>
-                    <Link to="/articles/1">게시글 1</Link>
-                </li>
-                <li>
-                    <Link to="/articles/2">게시글 2</Link>
-                </li>
-                <li>
-                    <Link to="/articles/3">게시글 3</Link>
-                </li>
-            </ul>
-        
-        </>
+  return (
+    <>
+      <Outlet />
+      <ul>
+        <li>
+          <Link to="/articles/1">게시글 1</Link>
+        </li>
+        <li>
+          <Link to="/articles/2">게시글 2</Link>
+        </li>
+        <li>
+          <Link to="/articles/3">게시글 3</Link>
+        </li>
+      </ul>
+    </>
+  );
+};
 
-    )
-}
-
-export default Article
+export default Article;
 ```
 
 `article.jsx`
 
 ```jsx
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React from "react";
+import { useParams } from "react-router-dom";
 
 const Article = () => {
-    const { id } = useParams();
-    return(
-        <>
-            <h2>게시글 {id}</h2>
-        </>
-    )
+  const { id } = useParams();
+  return (
+    <>
+      <h2>게시글 {id}</h2>
+    </>
+  );
+};
 
-}
-
-export default Article
+export default Article;
 ```
 
 `home.jsx`
 
 ```jsx
 <li>
-	<Link to="/articles">게시글 목록</Link>
+  <Link to="/articles">게시글 목록</Link>
 </li>
-
 ```
 
 `app.jsx`
 
 ```jsx
 <>
-        <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/about" element={<About/>}/>
-            <Route path='/profile/:username' element={<Profile/>}/>
-            <Route path='/articles' element={<Articles/>}>
-              <Route path=':id' element={<Article/>}/>  
-            </Route>
-        </Routes>
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/about" element={<About />} />
+    <Route path="/profile/:username" element={<Profile />} />
+    <Route path="/articles" element={<Articles />}>
+      <Route path=":id" element={<Article />} />
+    </Route>
+  </Routes>
 </>
 ```
 
@@ -493,13 +486,13 @@ export default Layout;
 `App.jsx`
 
 ```jsx
-import { Route, Routes } from 'react-router-dom';
-import Layout from './Layout';
-import About from './pages/About';
-import Article from './pages/Article';
-import Articles from './pages/Articles';
-import Home from './pages/Home';
-import Profile from './pages/Profile';
+import { Route, Routes } from "react-router-dom";
+import Layout from "./Layout";
+import About from "./pages/About";
+import Article from "./pages/Article";
+import Articles from "./pages/Articles";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
 
 const App = () => {
   return (
@@ -528,15 +521,12 @@ Layout의Route의 path는 “/” 루트로 된고 Home component의 index props
 ```jsx
 const navigate = useNavigate();
 
-navigate()
+navigate();
 ```
 
 - navigate (?)
-    
-    파라미터 값이 숫자면 해당 숫자만큼 앞으로 가거나 뒤로감, 주소를 입력할경우 해당 주소로 가게됨,
-    
-    replace라는 옵션은 해당 페이지 기록을 남기않게됨
-    
+  파라미터 값이 숫자면 해당 숫자만큼 앞으로 가거나 뒤로감, 주소를 입력할경우 해당 주소로 가게됨,
+  replace라는 옵션은 해당 페이지 기록을 남기않게됨
 
 ## NavLink를 사용해보자
 
@@ -545,75 +535,88 @@ navigate()
 `artcles.jsx`
 
 ```jsx
-import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import React from "react";
+import { NavLink, Outlet } from "react-router-dom";
 
 const Article = () => {
-    const activeStyle = {
-        color : 'green',
-        fontsize : 21,
-    }
+  const activeStyle = {
+    color: "green",
+    fontsize: 21,
+  };
 
-    return(
-        <>
-            <Outlet/>
-            <ul>
-                <li>
-                    <NavLink to="/articles/1" style={({isActive}) => (isActive ? activeStyle : undefined)} >게시글 1</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/articles/2" style={({isActive}) => (isActive ? activeStyle : undefined)}>게시글 2</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/articles/3" style={({isActive}) => (isActive ? activeStyle : undefined)}>게시글 3</NavLink>
-                </li> 
-            </ul>
-        
-        </>
+  return (
+    <>
+      <Outlet />
+      <ul>
+        <li>
+          <NavLink
+            to="/articles/1"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            게시글 1
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/articles/2"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            게시글 2
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/articles/3"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            게시글 3
+          </NavLink>
+        </li>
+      </ul>
+    </>
+  );
+};
 
-    )
-}
-
-export default Article
+export default Article;
 ```
 
 중복된 코드를 최소화하고 같이 묶어서 쓰는법
 
 ```jsx
-import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import React from "react";
+import { NavLink, Outlet } from "react-router-dom";
 
 const Articles = () => {
-    return (
-      <div>
-        <Outlet />
-        <ul>
-          <ArticleItem id={1} />
-          <ArticleItem id={2} />
-          <ArticleItem id={3} />
-        </ul>
-      </div>
-    );
-  };
-  
-  const ArticleItem = ({ id }) => {
-    const activeStyle = {
-      color: 'green',
-      fontSize: 21,
-    };
-    return (
-      <li>
-        <NavLink
-          to={`/articles/${id}`}
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
-        >
-          게시글 {id}
-        </NavLink>
-      </li>
-    );
-  };
+  return (
+    <div>
+      <Outlet />
+      <ul>
+        <ArticleItem id={1} />
+        <ArticleItem id={2} />
+        <ArticleItem id={3} />
+      </ul>
+    </div>
+  );
+};
 
-export default Articles
+const ArticleItem = ({ id }) => {
+  const activeStyle = {
+    color: "green",
+    fontSize: 21,
+  };
+  return (
+    <li>
+      <NavLink
+        to={`/articles/${id}`}
+        style={({ isActive }) => (isActive ? activeStyle : undefined)}
+      >
+        게시글 {id}
+      </NavLink>
+    </li>
+  );
+};
+
+export default Articles;
 ```
 
 ## NotFound Page만들기
@@ -649,7 +652,7 @@ export default NotFound;
 App.jsx 에 NotFound를 축가
 
 ```jsx
-<Route path="*" element={<NotFound/>}/>
+<Route path="*" element={<NotFound />} />
 ```
 
 ## Navigate 컴포넌트를 이용한 loginpage
@@ -657,20 +660,18 @@ App.jsx 에 NotFound를 축가
 `MyPage.jsx`
 
 ```jsx
-import React from 'react';
-import { Navigate } from 'react-router-dom';
+import React from "react";
+import { Navigate } from "react-router-dom";
 
 const MyPage = () => {
-    const isLogIn = false;
-    
-    if(!isLogIn){
-        return <Navigate to="/login" replace={true}/>
-    }
+  const isLogIn = false;
 
-    return (
-        <>My Page</>
-    )
-}
+  if (!isLogIn) {
+    return <Navigate to="/login" replace={true} />;
+  }
+
+  return <>My Page</>;
+};
 
 export default MyPage;
 ```
@@ -680,12 +681,12 @@ Navigate 컴포넌트를 통해 로그인이 되지 않으면 login page로 가�
 `Login.jsx`
 
 ```jsx
-import React from 'react'
+import React from "react";
 
 const Login = () => {
-    return <>로그인 페이지</>;
-  };
-  
+  return <>로그인 페이지</>;
+};
+
 export default Login;
 ```
 
@@ -698,7 +699,6 @@ export default Login;
 
 두개 항목 추가해줄것
 
-내용 
+내용
 
 > [https://velog.io/@velopert/react-router-v6-tutorial#64-navigate-컴포넌트](https://velog.io/@velopert/react-router-v6-tutorial#64-navigate-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8)
->

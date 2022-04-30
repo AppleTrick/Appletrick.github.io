@@ -6,7 +6,7 @@ author:
 date: 2022-04-06 00:00:00 +0900
 categories: [JS]
 description: 데이터 정보를 저장하는 LocalStorage
-tags: [JS]
+tags: [javscript]
 ---
 
 LocalStorage는 웹에서 파일을 저장할 수 있는 기능, 작은 DB라고 생각하면 된다.
@@ -16,7 +16,7 @@ LocalStorage는 웹에서 파일을 저장할 수 있는 기능, 작은 DB라고
 setItem의 경우 Key , Value 형식으로 값을 저장할 수 있다.
 
 ```jsx
-localStorage.setItem("username" , "park");
+localStorage.setItem("username", "park");
 ```
 
 ## localStorage.getItem()
