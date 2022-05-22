@@ -23,7 +23,7 @@ html 파일을 다운로드 후에 root의 동일한 위치에 파일을 위치�
 
 # sitemap.xml 생성하기
 
-```jsx
+```
 ---
 layout: null
 ---
