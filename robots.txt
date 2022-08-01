@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://appletrick.github.io/sitemap.xml
